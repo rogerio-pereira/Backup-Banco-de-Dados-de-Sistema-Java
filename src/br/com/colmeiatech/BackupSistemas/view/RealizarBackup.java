@@ -11,12 +11,12 @@ package br.com.colmeiatech.BackupSistemas.view;
 import br.com.colmeiatech.BackupSistemas.control.ControladorBackup;
 import java.awt.Component;
 import java.awt.Container;
+import java.awt.Toolkit;
 import java.awt.event.ContainerEvent;
 import java.awt.event.ContainerListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.io.File;
-import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.JFileChooser;
@@ -97,6 +97,7 @@ public class RealizarBackup extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Realizar Backup");
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/br/com/colmeiatech/BackupSistemas/view/img/icone.png")));
 
         jLabel1.setText("Local");
 

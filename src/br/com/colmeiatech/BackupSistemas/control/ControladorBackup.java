@@ -26,16 +26,19 @@ public class ControladorBackup {
         File	arquivo         = new File(caminho); 
         boolean realizaBackup   = verificaArquivo(arquivo);
         
+        String comando = "";
+        comando = comando + "cmd /c util\\mysqldump.exe -u "+config.get("user");
+
+        if(!config.get("password").toString().isEmpty())
+            comando = comando + " -p "+config.get("password");
+        
+        comando = comando +" -h "+config.get("server")+" "+config.get("database")+" > \""+arquivo+"\"";
+        
+        System.out.println(comando);
+        
         if(realizaBackup == true)
         {
-            /*if(config.get("password") == null)
-            {*/
-                bckp.exec("cmd /c util\\mysqldump.exe -u "+config.get("user")+" -h "+config.get("server")+" "+config.get("database")+" > \""+arquivo+"\"");
-            /*}
-            else
-            {
-                bckp.exec("cmd /c util\\mysqldump.exe -u "+config.get("user")+" -p "+config.get("password")+" -h "+config.get("server")+" "+config.get("database")+" > \""+arquivo+"\"");
-            }*/
+            bckp.exec(comando);
         }
     }
     

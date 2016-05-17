@@ -62,7 +62,6 @@ public class Conexao
             prop.load(input);
 
             //Seta as propriedades
-            show_sql    = prop.getProperty("show_sql");
             user        = prop.getProperty("user");
             password    = prop.getProperty("password");
             server      = prop.getProperty("server");

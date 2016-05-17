@@ -42,6 +42,24 @@ public class ControladorBackup {
         }
     }
     
+    public void restauraBackup(String caminho) throws IOException
+    {
+        HashMap config          = Conexao.getConfigBD();
+        Runtime	bckp            = Runtime.getRuntime(); 
+        File	arquivo         = new File(caminho); 
+        
+        String comando = "";
+        
+        comando = comando + "cmd /c util\\mysql.exe -u "+config.get("user");
+        
+        if(!config.get("password").toString().isEmpty())
+            comando = comando + " -p "+config.get("password");
+        
+        comando = comando + " -h "+config.get("server")+" "+config.get("database")+" < \""+arquivo+"\"";
+        
+        bckp.exec(comando);
+    }
+    
     private boolean verificaArquivo(File arquivo)
     {
         if(arquivo.exists())

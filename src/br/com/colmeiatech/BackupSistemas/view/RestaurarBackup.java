@@ -184,7 +184,7 @@ public class RestaurarBackup extends javax.swing.JFrame {
             //Backup Restaurado
             JOptionPane.showMessageDialog(
                                             this, 
-                                            "Backup Restaurado com Sucesso!", 
+                                            "Backup Restaurado com Sucesso!\nReinicie o sistema.", 
                                             "Sucesso!", 
                                             JOptionPane.INFORMATION_MESSAGE
                                         );

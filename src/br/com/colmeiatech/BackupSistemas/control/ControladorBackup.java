@@ -33,9 +33,7 @@ public class ControladorBackup {
             comando = comando + " -p "+config.get("password");
         
         comando = comando +" -h "+config.get("server")+" "+config.get("database")+" > \""+arquivo+"\"";
-        
-        System.out.println(comando);
-        
+                
         if(realizaBackup == true)
         {
             bckp.exec(comando);
